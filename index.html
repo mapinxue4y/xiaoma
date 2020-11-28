@@ -3,7 +3,41 @@
     <head>
         <title>css</title>
         <meta charset="utf-8">
-        <link rel="stylesheet"   href="index/css1.css">
+        <style>
+            h1{
+                text-align:center;
+                color:black;
+                font-size:53px;
+            }
+            body{
+                margin: 30px;
+                background-color: white;
+                border: 2px white solid;
+            }
+            html{
+                background-color: black;
+            }
+            .outterDiv{
+                background-color: wheat;
+                height: 120px;
+                text-align: center;
+                font-size: 53px;
+                margin: 50px;   
+            }
+            .outterDiv p{
+                padding: 25px;
+            }
+            .footer{
+                height: 120px;
+                background-color:darkcyan;
+                margin: 50px;
+                text-align: center;
+                }
+            .footer p{
+                font-size: 53px;
+                color: burlywood;
+            }
+        </style>
     </head>
     <body>
         <h1 id="headFirst">this is head</h1>
@@ -11,6 +45,17 @@
             <div class="innerDiv"></div>
         </div>
         <footer class="footer"></footer>      
-        <script src="index/js.js"></script>      
+        <script>
+        const myDiv=document.querySelector(".outterDiv");
+        const footer=document.querySelector(".footer"); 
+        const Story=document.createElement('p');
+        myDiv.appendChild(Story);
+        Story.textContent='点这里';
+        Story.onclick=function (){
+        const newStory=document.createElement('p');
+        footer.appendChild(newStory);
+        newStory.textContent='你的小马';
+            }
+        </script>      
     </body>
 </html>
