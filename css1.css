@@ -1,0 +1,28 @@
+h1{
+    text-align:center;
+    color:black;
+    font-size:53px;
+  }
+  body{
+    margin: 30px;
+    background-color: white;
+    border: 2px white solid;
+  }
+  html{
+    background-color: black;
+  }
+.outterDiv{
+  background-color: wheat;
+  height: 120px;
+  text-align: center;
+  font-size: 53px;
+  margin: 50px;
+}.outterDiv p{
+  padding: 25px;
+}
+.footer{
+  height: 120px;
+  background-color:darkcyan;
+  margin: 50px;
+  text-align: 53px;
+}
