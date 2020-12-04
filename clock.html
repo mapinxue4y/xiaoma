@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>clock</title>
+        <meta charset="utf-8">
+        <style>
+            div{
+                margin-top: 150px;
+                text-align: center;
+                
+            }
+        
+        </style>
+    </head>
+    <body>
+        <div>
+        <canvas height="300px" width="300px"></canvas>
+        </div>
+        <script>
+            const canvas=document.querySelector('canvas');
+            const ctx=canvas.getContext('2d');
+
+            const height=ctx.canvas.height;
+            const width=ctx.canvas.width;
+
+            var r=width/2;
+            var rate=width/200;
+            console.log(r);
+            console.log(rate);
+
+            function Shapedraw(){
+                ctx.save();
+                ctx.translate(r,r);
+                ctx.beginPath();
+                ctx.lineWidth=10*rate;
+                ctx.arc(0,0,r-ctx.lineWidth/2,0,2*Math.PI);
+                ctx.stroke();
+                //ctx.fillStyle='aqua';
+                //ctx.fill();
+
+                var num=[3,4,5,6,7,8,9,10,11,12,1,2];
+                ctx.font=18*rate+'px Arial';
+                ctx.textAlign='center';
+                ctx.textBaseline='middle';
+
+                num.forEach(function(number,i){
+                    var ranum=2*Math.PI/12*i;
+                    var x=Math.cos(ranum)*(r-36*rate);
+                    var y=Math.sin(ranum)*(r-36*rate);
+                    ctx.fillText(number,x,y);
+                });
+
+
+                for(let i=0;i<60;i++)
+                {
+                    ctx.beginPath();
+                    var radots=2*Math.PI/12*i;
+                    var x=Math.cos(radots)*(r-18*rate);
+                    var y=Math.sin(radots)*(r-18*rate);
+                    if(i%3==0){
+                    ctx.arc(x,y,3,0,2*Math.PI,false);
+                    ctx.fillStyle='#000';
+                    }
+                    else{
+                    ctx.arc(x,y,3,0,2*Math.PI,false);
+                    ctx.fillStyle='#ccc';
+                }
+                ctx.fill();
+                }
+            }
+
+           function hourline(hour,mint){
+                ctx.save();
+                ctx.beginPath();
+                var rahour=2*Math.PI/12 *hour;
+                var ramint=2*Math.PI/60 *mint/60;
+                ctx.rotate(rahour+ramint);
+                ctx.lineWidth=7*rate;
+                ctx.lineCap='round';
+                ctx.moveTo(0,10*rate);
+                ctx.lineTo(0,-r/2);
+                ctx.stroke();
+                ctx.restore();
+            }
+
+            function minline(min){
+                ctx.save();
+                ctx.beginPath();
+                var ramin=2*Math.PI/60 *min;
+                ctx.rotate(ramin);
+                ctx.lineCap='round';
+                ctx.lineWidth=3*rate;
+                ctx.moveTo(0,5*rate);
+                ctx.lineTo(0,-(r-rate*20));
+                ctx.stroke();
+                ctx.restore();
+            }
+
+            function secline(sec){
+                ctx.save();
+                ctx.beginPath();
+                var rasec=2*Math.PI/60*sec;
+                ctx.rotate(rasec);
+                ctx.lineWidth=3*rate;
+                ctx.moveTo(0,rate*10);
+                ctx.lineTo(0,-(r-10*rate));
+                ctx.lineCap='round';
+                ctx.strokeStyle='red';
+                ctx.stroke();
+                ctx.restore();
+            }
+            function dot(){
+                ctx.beginPath();
+                ctx.fillStyle='white';
+                ctx.arc(0,0,7.5,0,2*Math.PI,false);
+                ctx.fill();  
+            }
+            function draw(){
+                ctx.clearRect(0,0,width,height);
+
+                var now= new Date();
+                var hour=now.getHours();
+                var min=now.getMinutes();
+                var sec=now.getSeconds();
+                
+                Shapedraw();
+                hourline(hour,min);
+                minline(min);
+                secline(sec);
+                dot();
+
+                ctx.restore();
+            }
+                 
+            draw();
+            setInterval(draw,1000);
+        </script>
+    </body>
+</html>
