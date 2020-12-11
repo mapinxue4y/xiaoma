@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>无情画板手机版</title>
+        <meta charset="utf-8">
+        <style>
+            body{
+                background-color: black;
+                text-align: center;
+            }
+            canvas{
+                background-color: cornsilk;
+            }
+        </style>
+    </head>
+    <body>
+        <label for="myColor" style="color: darkgrey;">选择颜色<input type="color" id="myColor"></label><br>
+    <!--<label for="width" style="color: floralwhite;">输入粗细 <input id="width" type="number"></label>-->
+        <button id="clear">清空画布</button><br>
+
+        <canvas id="myCanvas" height="800px" width="800px"></canvas>
+        <script>
+                const myButton=document.getElementById('clear');
+                myButton.addEventListener('click',clear);
+                function clear(){
+                    let myCanvas=document.getElementById('myCanvas');
+                    let ctx=myCanvas.getContext('2d');
+                    myCanvas.height=myCanvas.height;
+                }
+            window.onload=function(){
+                let myCanvas=document.getElementById('myCanvas');
+                let ctx=myCanvas.getContext('2d');
+                myCanvas.ontouchstart=function(ev){
+                    let preX=ev.offsetX;
+                    let preY=ev.offsetY;
+                    event.preventDefault();
+                    document.ontouchmove=function(ev){
+                        if(ev.target!==myCanvas){ 
+                            return;
+                        }
+                        ctx.beginPath();
+                        ctx.moveTo(preX,preY);
+                        ctx.lineTo(ev.offsetX,ev.offsetY);
+                        preX=ev.offsetX;
+                        preY=ev.offsetY;
+                        ctx.lineWidth=4;
+                        ctx.strokeStyle=document.getElementById('myColor').value;
+                        ctx.stroke();
+                    }
+                    document.ontouchend=function(){
+                        document.ontouchmove=null;
+                    }
+                }
+            }
+        </script>
+    </body>
+</html>
