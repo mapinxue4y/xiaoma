@@ -1,72 +1,29 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>css</title>
+        <title>马品学的个人网站</title>
         <meta charset="utf-8">
-        <style>
-            h1{
-                text-align:center;
-                color:black;
-                font-size:53px;
-            }
-            body{
-                margin: 30px;
-                background-color: white;
-                border: 2px white solid;
-            }
-            html{
-                background-color: black;
-            }
-            .outterDiv{
-                background-color: wheat;
-                height: 120px;
-                text-align: center;
-                font-size: 53px;
-                margin: 50px;   
-            }
-            .outterDiv p{
-                padding: 25px;
-            }
-            .footer{
-                height: 120px;
-                background-color:darkcyan;
-                margin: 50px;
-                text-align: center;
-                }
-            .footer p{
-                font-size: 53px;
-                color: burlywood;
-            }   
-            a {
-                color:darkgreen;
-                display: block;
-                text-align: center;
-                font-size: 40px;
-                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-             }
-        </style>
+        <link rel="stylesheet" href="personnalCss.css">
     </head>
     <body>
-        <h1 id="headFirst">this is head</h1>
-        <div class="outterDiv">
-            <div class="innerDiv"></div>
+        <div class="body">
+        <h1 id="headFirst">NotePad</h1>
+        <h2 id="headSec">记录开发的生涯<br></h2>
+        <div id="achor">
+        <a href="clock.html" id="clock">走动的钟表<br></a>
+        <a href="cool.html" id="ground">无情画板<br></a>
+        <a href="smallBall.html" id="ball">弹跳小球<br></a>
+        <a href="css2.html" id="developing">正在开发的一个HTML<br></a>
         </div>
-        <a href="clock.html">clock</a>
-        <footer class="footer"></footer>      
-         <a href="css2.html">developing</a>
-        <a href="cool.html">coolGround</a>
-        <a href="coolonphone.html">coolOnPhone</a>
-        <script>
-        const myDiv=document.querySelector(".outterDiv");
-        const footer=document.querySelector(".footer"); 
-        const Story=document.createElement('p');
-        myDiv.appendChild(Story);
-        Story.textContent='别点这里';
-        Story.onclick=function (){
-        const newStory=document.createElement('p');
-        footer.appendChild(newStory);
-        newStory.textContent='你的小马';
-            }
-        </script>      
+        <div id="Footer"> 
+        <footer class="Footer">
+            <ul>
+                <li class="footer">this web is lunched on Github by mpx.</li>
+                <li class="footerA">And the souce code is <a href="https://github.com/mapinxue4y/xiaoma" title="Github仓库" id="git">here</a>.</li>
+                <li class="footerB">the page is used to<strong> note.</strong></li>
+            </ul>
+        </footer>
+        </div>
+        </div>
     </body>
 </html>
