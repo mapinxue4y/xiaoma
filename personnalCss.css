@@ -60,3 +60,15 @@ h2{
   display: block;
   font-size: 30px;
 }
+#math{
+  display: block;
+  margin: 20px;
+  font-size: 30px;
+  color: saddlebrown;
+}
+#python{
+  display: block;
+  margin: 20px;
+  font-size: 30px;
+  color: blueviolet;
+}
