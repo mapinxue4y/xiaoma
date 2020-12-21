@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        csshua
+    </title>
+    <meta charset="utf-8">
+    <style>
+     
+     body{
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f8f005;
+        }
+        button,button::after{
+            width: 380px;
+            height: 86px;
+            font-size: 36px;
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            background: linear-gradient(45deg,transparent 5%,#ff013c 5%);
+            border: 0;
+            color: #fff;
+            letter-spacing:3px;
+            box-shadow:6px 0px 0px #00e6f6;
+            line-height:88px;
+            outline:transparent;
+            position: relative;
+        }
+button::after{
+    --slice-0:inset(50% 50% 50% 50%);
+    --slice-1:inset(80% -6px 0 0);
+    --slice-2:inset(40% -6px 30% 0);
+    --slice-3:inset(50% -6px 20% 0);
+    --slice-4:inset(80% -6px 5% 0);
+    --slice-5:inset(69% -6px 30% 0);
+    
+    content: 'life is changing';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    background: linear-gradient(45deg,transparent 3%,#00e6f6 3%,#00e6f6 5%,#ff013c 5%);
+    text-shadow: -3px -3px 0px #f8f005,3px 3px 0px #00e6f6;
+    clip-path:var(--slice-0);
+}
+@keyframes mainflash{
+    0%{
+        clip-path: var(--slice-1);
+        transform: translate(-20px,-10px);
+    }
+    10%{
+        clip-path: var(--slice-2);
+        transform: translate(20px,10px);
+    }
+    20%{
+        clip-path: var(--slice-1);
+        transform: translate(0px,20px);
+    }
+    30%{
+        clip-path: var(--slice-4);
+        transform: translate(-10px,0px);
+    }
+    40%{
+       clip-path: var(--slice-5);
+        transform: translate(-20px,20px);
+    }
+}
+button:hover::after{
+    animation: mainflash 1.5s ;
+    animation-timing-function: steps(2,end);
+}
+    </style>
+</head>
+<body>
+        <button>
+            life is changing
+        </button>
+        <script>
+            alert('鼠标放到字体上有动画');
+        </script>
+</body>
+</html>
