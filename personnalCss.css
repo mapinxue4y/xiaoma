@@ -1,12 +1,37 @@
 body{
   margin: 0;
 }
-h1{
-  padding: 10px;
+h1,h1::after{
+  padding: 19px;
   margin: 10px;
-  color: slateblue;
+  color: #fff;
   font-size: 50px;
    float: left;
+  width: 220px;
+  height: 60px;
+  background: linear-gradient(45deg,transparent 5% ,#45f);
+  border: 0;
+  box-shadow:  6px 0px 0px  #00e6f6;
+  outline: transparent;
+  position: relative;
+}
+h1:hover::after{
+  --slice-0:inset(50% 50% 50% 50%);
+  --slice-1:inset(20% -6px 20% 29%);
+  --slice-2:inset(40% -6px 30% 0);
+  --slice-3:inset(60% -6px 40% 10px);
+  --slice-4:inset(80% -6px 50% 0);
+  --slice-5:inset(100% -6px 800% 0);
+  
+  display: block;
+  content: 'life is changing!';
+  font-size:30px;
+  position: absolute;
+  top:-10px;
+  bottom:0;
+  left:-10px;
+  background:linear-gradient(45deg,transparent 5%,#45f,#ff013c);
+  text-shadow:3px 3px 0px #543f;
 }
 h2{
   padding: 48px;
