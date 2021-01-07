@@ -5,5 +5,7 @@
    Web front-end & back-end .
    Node.js ,vue and react is the one i will concentrate on.
    The Red Book .
+   ```mermaid
    graph LR
 A[index]-->B(smallProject)
+```
