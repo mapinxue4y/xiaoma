@@ -1,0 +1,18 @@
+
+html{
+    background-color: black;
+    font-family:  SimSun;
+}
+.key{
+    font-size: 20px;
+    margin: 1rem;
+    height: 3.1rem;
+    border: 3px black solid;
+    text-align: center;
+    transition: all .09s;
+    background-color: rebeccapurple;
+}.playing{
+    background-color: orange;
+    border: 3px orange solid;
+    transform: scale(1.1);
+}
