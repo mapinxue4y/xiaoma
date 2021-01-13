@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>计算器</title>
+        <meta charset="utf-8">
+        <link href="main.css" rel="stylesheet">
+    </head>
+    <body>
+        <div id="out"></div>
+        <div data-id="10" class="key0">AC</div>
+        <div data-id="11" class="key1">Del</div>
+        <div class="keys">
+        <div data-id="12" class="key2">+</div>
+        <div data-id="13" class="key2">-</div>
+        <div data-id="14" class="key2">*</div>
+        <div data-id="15" class="key2">/</div>
+        </div>
+        <div data-id="1" class="key3">1</div>
+        <div data-id="2" class="key3">2</div>
+        <div data-id="3" class="key3">3</div>
+        <div data-id="4" class="key3">4</div>
+        <div data-id="5" class="key3">5</div>
+        <div data-id="6" class="key3">6</div>
+        <div data-id="20" class="key4">=</div>
+        <script>
+            const out =document.getElementById('out');
+            var count =0;
+            var result;
+            const cd = {};
+            function lisener(e){
+                let tare = e.target;
+                cd.inner = tare.dataset['id'];
+                console.log(cd.inner);
+                if(cd.inner==20){
+                    result = out.textContent.toString();
+                    console.log(result);
+                    console.log(eval(result));
+                    out.textContent=eval(result);
+                }
+                if(cd.inner>11&&cd.inner<16){
+                    out.textContent+=tare.innerText;}
+                if(cd.inner==undefined)return;
+                if(cd.inner==10){
+                    out.textContent='';
+                    count=0;
+                    return;    
+                }//遗漏bug
+                if(cd.inner==11){
+                   out.textContent=document.getElementById('out').innerText.substr(0,count-1);
+                   count--;
+                   return;
+                }
+              if(cd.inner>0&&cd.inner<7){ out.textContent += cd.inner;
+               count++;
+              }
+            }
+            window.addEventListener('click',lisener);
+        </script>
+    </body>
+</html>
